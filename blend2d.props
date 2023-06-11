@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="15.0">
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <PreprocessorDefinitions>BLEND2D_PACKAGE_PATH=R"($(MSBuildThisFileDirectory))";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>$(Configuration)\blend2d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(MSBuildThisFileDirectory)lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <Target Name="Blend2d_CopyFiles" BeforeTargets="Build">
+    <!--ItemGroup>
+        <Blend2dLibs Include="$(MSBuildThisFileDirectory)lib\$(Configuration)\*.dll;$(MSBuildThisFileDirectory)lib\$(Configuration)\*.pdb" />
+    </ItemGroup>
+    <Copy SourceFiles="@(Blend2dLibs)" DestinationFolder="$(OutDir)\%(RecursiveDir)" SkipUnchangedFiles="true"/-->
+    <Exec Command="ROBOCOPY &quot;$(MSBuildThisFileDirectory)lib\$(Configuration)&quot; &quot;$(OutDir)&quot; *.dll *.pdb /S >NUL" IgnoreExitCode="true"/>
+  </Target>
+</Project>

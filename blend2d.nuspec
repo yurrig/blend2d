@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>Blend2d</id>
+        <authors>Petr Kobalicek</authors>
+        <version>0.10</version>
+        <description>2D Vector Graphics Engine Powered by a JIT Compiler</description>
+        <tags>native nativepackage C++ blend2d</tags>
+    </metadata>
+    <files>
+        <file src="build\Debug\*"          target="build\native\lib\Debug"   />
+        <file src="build\RelWithDebInfo\*" target="build\native\lib\Release" />
+        <file src="src\**\*"               target="build\native\include"     />
+        <file src="blend2d.props"          target="build\native"             />
+    </files>
+</package>

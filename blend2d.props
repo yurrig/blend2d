@@ -15,6 +15,6 @@
         <Blend2dLibs Include="$(MSBuildThisFileDirectory)lib\$(Configuration)\*.dll;$(MSBuildThisFileDirectory)lib\$(Configuration)\*.pdb" />
     </ItemGroup>
     <Copy SourceFiles="@(Blend2dLibs)" DestinationFolder="$(OutDir)\%(RecursiveDir)" SkipUnchangedFiles="true"/-->
-    <Exec Command="ROBOCOPY &quot;$(MSBuildThisFileDirectory)lib\$(Configuration)&quot; &quot;$(OutDir)&quot; *.dll *.pdb /S >NUL" IgnoreExitCode="true"/>
+    <Exec Command="ROBOCOPY &quot;$(MSBuildThisFileDirectory)lib\$(Configuration)&quot; &quot;$(OutDir).&quot; *.dll *.pdb /S >NUL" IgnoreExitCode="true"/>
   </Target>
 </Project>

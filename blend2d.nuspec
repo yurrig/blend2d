@@ -8,9 +8,9 @@
         <tags>native nativepackage C++ blend2d</tags>
     </metadata>
     <files>
-        <file src="build\Debug\*"          target="build\native\lib\Debug"   />
-        <file src="build\RelWithDebInfo\*" target="build\native\lib\Release" />
-        <file src="src\**\*"               target="build\native\include"     />
-        <file src="blend2d.props"          target="build\native"             />
+        <file src="build\Debug\*" exclude="**\*.exp;**\*.bak"           target="build\native\lib\Debug"   />
+        <file src="build\RelWithDebInfo\*" exclude="**\*.exp;**\*.bak"  target="build\native\lib\Release" />
+        <file src="src\**\*"                                            target="build\native\include"     />
+        <file src="blend2d.props"                                       target="build\native"             />
     </files>
 </package>
